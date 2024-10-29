@@ -9,17 +9,12 @@
 
     <h1>
         <?php
-            echo "Hello, Mr. Bluesky!";
+            $greeting = "Hello";
+            echo $greeting . ", " . "Mr. Bluesky!";
+
+            echo "$greeting, Mr. Brightside!";
         ?>
     </h1>
-
-    <p>
-        <?php
-
-            echo "This is a paragraph. Apparently.";
-
-        ?>
-    </p>
 
 </body>
 </html>
