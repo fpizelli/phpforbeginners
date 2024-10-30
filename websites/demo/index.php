@@ -11,23 +11,50 @@
     <?php
         $books = [
             [
-                'name' => 'Do Androids Dream of Electric Sheep',
-                'author' => 'Philip k. Dick',
+                'name' => '1984',
+                'author' => 'George Orwell',
+                'releaseYear' => 1949,
                 'purchaseUrl' => 'http://example.com'
             ],
             [
-                'name' => 'Project Hail Mary',
-                'author' => 'Andy Weir',
-                'purchaseUrl' => 'http://example.com'
+                'name' => 'The Hobbit',
+                'author' => 'J. R. R. Tolkien',
+                'releaseYear' => 1937,
+                'purchaseUrl' => 'https://example.com'
             ],
+            [
+                'name' => 'A Game of Thrones',
+                'author' => 'George R. R. Martin',
+                'releaseYear' => 1996,
+                'purchaseUrl' => 'https://example.com'
+            ],
+            [
+                'name' => 'A Clash of Kings',
+                'author' => 'George R. R. Martin',
+                'releaseYear' => 1998,
+                'purchaseUrl' => 'https://example.com'
+            ]
         ];
+
+        function filterByAuthor($books, $author) {
+            $filteredBooks = [];
+
+            foreach ($books as $book) {
+                if ($book['author'] === $author) {
+                    $filteredBooks[] = $book;
+                }
+            }
+
+            return $filteredBooks;
+        }
+
     ?>
 
     <ul>
-        <?php foreach ($books as $book) : ?>
+        <?php foreach (filterByAuthor($books, 'George R. R. Martin') as $book) : ?>
             <li>
                 <a href="<?= $book['purchaseUrl'] ?>">
-                    <?= $book['name']; ?>
+                    <?= $book['name']; ?> (<?= $book['releaseYear'] ?>) - By <?= $book['author'] ?>
                 </a>
             </li>
         <?php endforeach; ?>
